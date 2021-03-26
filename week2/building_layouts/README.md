@@ -1,16 +1,8 @@
 # building_layouts
 
-A new Flutter project.
+Flutter mobile Assignment (Week2)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/67319636/112656308-d926f100-8e83-11eb-87e7-df884a22b416.png" width="196" height="380">
+  <img src="https://user-images.githubusercontent.com/67319636/112656388-f065de80-8e83-11eb-8e06-378eaeda0c73.png" width="196" height="380">
+</p>
