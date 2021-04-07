@@ -1,6 +1,38 @@
+import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
-void main() => runApp(MyApp());
+import 'models/anime.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // final anime = new Anime('Shokubushi no slime', 'rimuru', 'im no a bad slime');
+  // print('Anime: ' +
+  //     anime.animeName +
+  //     '\n' +
+  //     'Main Character: ' +
+  //     anime.character);
+  // print('Quote: ${anime.quote}');
+
+  final Anime anime = await getAnime();
+  log(anime.animeName + " => Fck Yeah!!");
+
+  //runApp(MyApp());
+}
+
+Future<Anime> getAnime() async {
+  const url = 'https://animechan.vercel.app/api/random';
+  final uri = Uri.parse(url);
+  try {
+    final result = await http.get(uri);
+    final Map<String, Object> data = json.decode(result.body);
+    final anime = Anime.fromJson(data);
+    return anime;
+  } catch (e) {
+    return new Anime('none', 'none', 'none');
+  }
+}
 
 class MyApp extends StatelessWidget {
   @override
