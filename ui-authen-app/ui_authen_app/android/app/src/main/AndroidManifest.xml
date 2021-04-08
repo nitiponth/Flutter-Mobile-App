@@ -2,7 +2,7 @@
     package="com.example.ui_authen_app">
    <application
         android:label="ui_authen_app"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/icon.png">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_authen_app/Screens/Login/components/background.dart';
-import 'package:ui_authen_app/Screens/Login/login_screen.dart';
 import 'package:ui_authen_app/Screens/Signup/signup_screen.dart';
 import 'package:ui_authen_app/components/already_have_an_account_check.dart';
 import 'package:ui_authen_app/components/rounded_button.dart';
