@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_authen/Screens/login_success/login_success.dart';
-import 'package:ui_authen/components/aleart.dart';
 import 'package:ui_authen/components/rounded_button.dart';
 import 'package:ui_authen/constants.dart';
 
@@ -13,7 +12,6 @@ class SignForm extends StatefulWidget {
 class _SignFormState extends State<SignForm> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
-  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -51,7 +49,6 @@ class _SignFormState extends State<SignForm> {
       }));
     }).catchError((error) {
       print(error);
-      showAlertDialog(context);
     });
 
     print(emailController.text.trim());

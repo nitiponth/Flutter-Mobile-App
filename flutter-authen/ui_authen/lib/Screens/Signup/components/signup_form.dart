@@ -1,21 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_authen/Screens/login_success/login_success.dart';
-import 'package:ui_authen/components/aleart.dart';
+import 'package:ui_authen/components/rePassAleart.dart';
 import 'package:ui_authen/components/rounded_button.dart';
 import 'package:ui_authen/constants.dart';
 
-class SignForm extends StatefulWidget {
+class SignUpForm extends StatefulWidget {
   @override
-  _SignFormState createState() => _SignFormState();
+  _SignUpFormState createState() => _SignUpFormState();
 }
 
-class _SignFormState extends State<SignForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
-  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordCheckController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,12 @@ class _SignFormState extends State<SignForm> {
           SizedBox(height: size.height * 0.02),
           buildPasswordFormField(),
           SizedBox(height: size.height * 0.025),
+          buildPasswordCheckFormField(),
+          SizedBox(height: size.height * 0.025),
           RoundedButton(
-            text: "LOG IN",
+            text: "SIGN UP",
             press: () {
-              signIn();
+              signUp();
             },
           ),
         ],
@@ -39,23 +41,25 @@ class _SignFormState extends State<SignForm> {
     );
   }
 
-  signIn() {
-    _auth
-        .signInWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim())
-        .then((user) {
-      print("signed in ${emailController.text.trim()} Success!!");
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return LoginSuccessScreen();
-      }));
-    }).catchError((error) {
-      print(error);
-      showAlertDialog(context);
-    });
-
-    print(emailController.text.trim());
-    print(passwordController.text.trim());
+  signUp() {
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
+    String passwordCheck = passwordCheckController.text.trim();
+    if (password == passwordCheck && password.length >= 6) {
+      _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((user) {
+        print("Sign up user successful.");
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return LoginSuccessScreen();
+        }));
+      }).catchError((error) {
+        print(error.message);
+      });
+    } else {
+      print("Password and Confirm-password is not match.");
+      showRePassAlertDialog(context);
+    }
   }
 
   TextFormField buildEmailFormField() {
@@ -94,6 +98,30 @@ class _SignFormState extends State<SignForm> {
           color: kPrimaryColor,
         ),
         labelText: "Password",
+        hintText: "Enter your password",
+        contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: BorderSide(color: kPrimaryColor),
+          gapPadding: 10,
+        ),
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+      ),
+    );
+  }
+
+  TextFormField buildPasswordCheckFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) {},
+      onChanged: (value) {},
+      controller: passwordCheckController,
+      decoration: InputDecoration(
+        suffixIcon: Icon(
+          Icons.lock,
+          color: kPrimaryColor,
+        ),
+        labelText: "Re - Password",
         hintText: "Enter your password",
         contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
         enabledBorder: OutlineInputBorder(

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:ui_authen/Screens/Login/login_screen.dart';
 import 'package:ui_authen/Screens/Signup/components/background.dart';
+import 'package:ui_authen/Screens/Signup/components/signup_form.dart';
 import 'package:ui_authen/Screens/Signup/components/social_icon.dart';
 import 'package:ui_authen/components/already_have_an_account_acheck.dart';
-import 'package:ui_authen/components/rounded_button.dart';
-import 'package:ui_authen/components/rounded_input_field.dart';
-import 'package:ui_authen/components/rounded_password_field.dart';
+import 'package:ui_authen/components/doNotSupportYet.dart';
 
 import 'or_divider.dart';
 
@@ -23,23 +21,11 @@ class Body extends StatelessWidget {
               "SIGNUP",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/signup.svg",
-              height: size.height * 0.35,
+            SizedBox(height: size.height * 0.225),
+            Container(
+              width: size.width * 0.8,
+              child: SignUpForm(),
             ),
-            RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {},
-            ),
-            RoundedPasswordField(
-              onChanged: (value) {},
-            ),
-            RoundedButton(
-              text: "SIGNUP",
-              press: () {},
-            ),
-            SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
               login: false,
               press: () {
@@ -59,15 +45,21 @@ class Body extends StatelessWidget {
               children: <Widget>[
                 SocalIcon(
                   iconSrc: "assets/icons/facebook.svg",
-                  press: () {},
+                  press: () {
+                    doNotSupportDialog(context);
+                  },
                 ),
                 SocalIcon(
                   iconSrc: "assets/icons/twitter.svg",
-                  press: () {},
+                  press: () {
+                    doNotSupportDialog(context);
+                  },
                 ),
                 SocalIcon(
-                  iconSrc: "assets/icons/google-plus.svg",
-                  press: () {},
+                  iconSrc: "assets/icons/google-icon.svg",
+                  press: () {
+                    doNotSupportDialog(context);
+                  },
                 ),
               ],
             )

@@ -4,9 +4,6 @@ import 'package:ui_authen/Screens/Login/components/background.dart';
 import 'package:ui_authen/Screens/Login/components/sign_form.dart';
 import 'package:ui_authen/Screens/Signup/signup_screen.dart';
 import 'package:ui_authen/components/already_have_an_account_acheck.dart';
-import 'package:ui_authen/components/rounded_button.dart';
-import 'package:ui_authen/components/rounded_input_field.dart';
-import 'package:ui_authen/components/rounded_password_field.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -25,7 +22,7 @@ class Body extends StatelessWidget {
               "LOGIN",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: size.height * 0.08),
+            SizedBox(height: size.height * 0.05),
             SvgPicture.asset(
               "assets/icons/login.svg",
               height: size.height * 0.35,
