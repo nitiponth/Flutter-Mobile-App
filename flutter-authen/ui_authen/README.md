@@ -1,16 +1,2 @@
-# ui_authen
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🔥 google firebase authentication with flutter Application 🔥
+![Android Emulator - Pixel_4_API_30_5554 9_4_2564 23_38_44](https://user-images.githubusercontent.com/67319636/114214287-511a0e80-998e-11eb-8745-a1984573b9c3.png)
