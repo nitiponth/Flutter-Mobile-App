@@ -1,0 +1,4 @@
+#Thu Apr 08 00:37:39 ICT 2021
+base.0=D\:\\KMUTNB_FILE\\EnET_C\\2-2563\\Mobile-and-Cloud\\Mobile-Application\\Flutter-Mobile-App\\ui-authen-app\\ui_authen_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
